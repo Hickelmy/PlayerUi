@@ -28,12 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panelSideMenu = new Panel();
-            panelEqualizerSubmenu = new Panel();
-            button11 = new Button();
-            button12 = new Button();
-            button13 = new Button();
-            button14 = new Button();
             btnEqualizer = new Button();
             panelPlaylistSubmenu = new Panel();
             button6 = new Button();
@@ -48,17 +44,20 @@
             button2 = new Button();
             btnMedia = new Button();
             panelLogo = new Panel();
+            panelPlayer = new Panel();
+            panelChildForm = new Panel();
+            pictureBox1 = new PictureBox();
             panelSideMenu.SuspendLayout();
-            panelEqualizerSubmenu.SuspendLayout();
             panelPlaylistSubmenu.SuspendLayout();
             panelMediaSubmenu.SuspendLayout();
+            panelChildForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelSideMenu
             // 
             panelSideMenu.AutoScroll = true;
             panelSideMenu.BackColor = Color.FromArgb(17, 7, 11);
-            panelSideMenu.Controls.Add(panelEqualizerSubmenu);
             panelSideMenu.Controls.Add(btnEqualizer);
             panelSideMenu.Controls.Add(panelPlaylistSubmenu);
             panelSideMenu.Controls.Add(btnPlaylist);
@@ -69,88 +68,12 @@
             panelSideMenu.Location = new Point(0, 0);
             panelSideMenu.Name = "panelSideMenu";
             panelSideMenu.Padding = new Padding(0, 0, 0, 50);
-            panelSideMenu.Size = new Size(250, 903);
+            panelSideMenu.Size = new Size(250, 553);
             panelSideMenu.TabIndex = 0;
-            // 
-            // panelEqualizerSubmenu
-            // 
-            panelEqualizerSubmenu.BackColor = Color.FromArgb(35, 32, 39);
-            panelEqualizerSubmenu.Controls.Add(button11);
-            panelEqualizerSubmenu.Controls.Add(button12);
-            panelEqualizerSubmenu.Controls.Add(button13);
-            panelEqualizerSubmenu.Controls.Add(button14);
-            panelEqualizerSubmenu.Dock = DockStyle.Top;
-            panelEqualizerSubmenu.Location = new Point(0, 569);
-            panelEqualizerSubmenu.Name = "panelEqualizerSubmenu";
-            panelEqualizerSubmenu.Size = new Size(250, 167);
-            panelEqualizerSubmenu.TabIndex = 5;
-            // 
-            // button11
-            // 
-            button11.Dock = DockStyle.Top;
-            button11.FlatAppearance.BorderSize = 0;
-            button11.FlatStyle = FlatStyle.Flat;
-            button11.ForeColor = Color.LightGray;
-            button11.Location = new Point(0, 120);
-            button11.Name = "button11";
-            button11.Padding = new Padding(35, 0, 0, 0);
-            button11.Size = new Size(250, 40);
-            button11.TabIndex = 3;
-            button11.Text = "button11";
-            button11.TextAlign = ContentAlignment.MiddleLeft;
-            button11.UseVisualStyleBackColor = true;
-            button11.Click += button11_Click;
-            // 
-            // button12
-            // 
-            button12.Dock = DockStyle.Top;
-            button12.FlatAppearance.BorderSize = 0;
-            button12.FlatStyle = FlatStyle.Flat;
-            button12.ForeColor = Color.LightGray;
-            button12.Location = new Point(0, 80);
-            button12.Name = "button12";
-            button12.Padding = new Padding(35, 0, 0, 0);
-            button12.Size = new Size(250, 40);
-            button12.TabIndex = 2;
-            button12.Text = "button12";
-            button12.TextAlign = ContentAlignment.MiddleLeft;
-            button12.UseVisualStyleBackColor = true;
-            button12.Click += button12_Click;
-            // 
-            // button13
-            // 
-            button13.Dock = DockStyle.Top;
-            button13.FlatAppearance.BorderSize = 0;
-            button13.FlatStyle = FlatStyle.Flat;
-            button13.ForeColor = Color.LightGray;
-            button13.Location = new Point(0, 40);
-            button13.Name = "button13";
-            button13.Padding = new Padding(35, 0, 0, 0);
-            button13.Size = new Size(250, 40);
-            button13.TabIndex = 1;
-            button13.Text = "button13";
-            button13.TextAlign = ContentAlignment.MiddleLeft;
-            button13.UseVisualStyleBackColor = true;
-            button13.Click += button13_Click;
-            // 
-            // button14
-            // 
-            button14.Dock = DockStyle.Top;
-            button14.FlatAppearance.BorderSize = 0;
-            button14.FlatStyle = FlatStyle.Flat;
-            button14.ForeColor = Color.LightGray;
-            button14.Location = new Point(0, 0);
-            button14.Name = "button14";
-            button14.Padding = new Padding(35, 0, 0, 0);
-            button14.Size = new Size(250, 40);
-            button14.TabIndex = 0;
-            button14.Text = "button14";
-            button14.TextAlign = ContentAlignment.MiddleLeft;
-            button14.UseVisualStyleBackColor = true;
-            button14.Click += button14_Click;
             // 
             // btnEqualizer
             // 
+            btnEqualizer.Cursor = Cursors.Hand;
             btnEqualizer.Dock = DockStyle.Top;
             btnEqualizer.FlatAppearance.BorderSize = 0;
             btnEqualizer.FlatStyle = FlatStyle.Flat;
@@ -158,7 +81,7 @@
             btnEqualizer.Location = new Point(0, 524);
             btnEqualizer.Name = "btnEqualizer";
             btnEqualizer.Padding = new Padding(10, 0, 0, 0);
-            btnEqualizer.Size = new Size(250, 45);
+            btnEqualizer.Size = new Size(229, 45);
             btnEqualizer.TabIndex = 4;
             btnEqualizer.Text = "Equalizer";
             btnEqualizer.TextAlign = ContentAlignment.MiddleLeft;
@@ -175,11 +98,12 @@
             panelPlaylistSubmenu.Dock = DockStyle.Top;
             panelPlaylistSubmenu.Location = new Point(0, 357);
             panelPlaylistSubmenu.Name = "panelPlaylistSubmenu";
-            panelPlaylistSubmenu.Size = new Size(250, 167);
+            panelPlaylistSubmenu.Size = new Size(229, 167);
             panelPlaylistSubmenu.TabIndex = 3;
             // 
             // button6
             // 
+            button6.Cursor = Cursors.Hand;
             button6.Dock = DockStyle.Top;
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
@@ -187,7 +111,7 @@
             button6.Location = new Point(0, 120);
             button6.Name = "button6";
             button6.Padding = new Padding(35, 0, 0, 0);
-            button6.Size = new Size(250, 40);
+            button6.Size = new Size(229, 40);
             button6.TabIndex = 3;
             button6.Text = "button6";
             button6.TextAlign = ContentAlignment.MiddleLeft;
@@ -196,6 +120,7 @@
             // 
             // button7
             // 
+            button7.Cursor = Cursors.Hand;
             button7.Dock = DockStyle.Top;
             button7.FlatAppearance.BorderSize = 0;
             button7.FlatStyle = FlatStyle.Flat;
@@ -203,7 +128,7 @@
             button7.Location = new Point(0, 80);
             button7.Name = "button7";
             button7.Padding = new Padding(35, 0, 0, 0);
-            button7.Size = new Size(250, 40);
+            button7.Size = new Size(229, 40);
             button7.TabIndex = 2;
             button7.Text = "button7";
             button7.TextAlign = ContentAlignment.MiddleLeft;
@@ -212,6 +137,7 @@
             // 
             // button8
             // 
+            button8.Cursor = Cursors.Hand;
             button8.Dock = DockStyle.Top;
             button8.FlatAppearance.BorderSize = 0;
             button8.FlatStyle = FlatStyle.Flat;
@@ -219,7 +145,7 @@
             button8.Location = new Point(0, 40);
             button8.Name = "button8";
             button8.Padding = new Padding(35, 0, 0, 0);
-            button8.Size = new Size(250, 40);
+            button8.Size = new Size(229, 40);
             button8.TabIndex = 1;
             button8.Text = "button8";
             button8.TextAlign = ContentAlignment.MiddleLeft;
@@ -228,6 +154,7 @@
             // 
             // button9
             // 
+            button9.Cursor = Cursors.Hand;
             button9.Dock = DockStyle.Top;
             button9.FlatAppearance.BorderSize = 0;
             button9.FlatStyle = FlatStyle.Flat;
@@ -235,7 +162,7 @@
             button9.Location = new Point(0, 0);
             button9.Name = "button9";
             button9.Padding = new Padding(35, 0, 0, 0);
-            button9.Size = new Size(250, 40);
+            button9.Size = new Size(229, 40);
             button9.TabIndex = 0;
             button9.Text = "button9";
             button9.TextAlign = ContentAlignment.MiddleLeft;
@@ -244,6 +171,7 @@
             // 
             // btnPlaylist
             // 
+            btnPlaylist.Cursor = Cursors.Hand;
             btnPlaylist.Dock = DockStyle.Top;
             btnPlaylist.FlatAppearance.BorderSize = 0;
             btnPlaylist.FlatStyle = FlatStyle.Flat;
@@ -251,7 +179,7 @@
             btnPlaylist.Location = new Point(0, 312);
             btnPlaylist.Name = "btnPlaylist";
             btnPlaylist.Padding = new Padding(10, 0, 0, 0);
-            btnPlaylist.Size = new Size(250, 45);
+            btnPlaylist.Size = new Size(229, 45);
             btnPlaylist.TabIndex = 2;
             btnPlaylist.Text = "Playlist";
             btnPlaylist.TextAlign = ContentAlignment.MiddleLeft;
@@ -268,12 +196,13 @@
             panelMediaSubmenu.Dock = DockStyle.Top;
             panelMediaSubmenu.Location = new Point(0, 145);
             panelMediaSubmenu.Name = "panelMediaSubmenu";
-            panelMediaSubmenu.Size = new Size(250, 167);
+            panelMediaSubmenu.Size = new Size(229, 167);
             panelMediaSubmenu.TabIndex = 1;
             panelMediaSubmenu.Paint += panelMediaSubmenu_Paint;
             // 
             // button5
             // 
+            button5.Cursor = Cursors.Hand;
             button5.Dock = DockStyle.Top;
             button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
@@ -281,7 +210,7 @@
             button5.Location = new Point(0, 120);
             button5.Name = "button5";
             button5.Padding = new Padding(35, 0, 0, 0);
-            button5.Size = new Size(250, 40);
+            button5.Size = new Size(229, 40);
             button5.TabIndex = 3;
             button5.Text = "button5";
             button5.TextAlign = ContentAlignment.MiddleLeft;
@@ -290,6 +219,7 @@
             // 
             // button4
             // 
+            button4.Cursor = Cursors.Hand;
             button4.Dock = DockStyle.Top;
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
@@ -297,7 +227,7 @@
             button4.Location = new Point(0, 80);
             button4.Name = "button4";
             button4.Padding = new Padding(35, 0, 0, 0);
-            button4.Size = new Size(250, 40);
+            button4.Size = new Size(229, 40);
             button4.TabIndex = 2;
             button4.Text = "button4";
             button4.TextAlign = ContentAlignment.MiddleLeft;
@@ -306,6 +236,7 @@
             // 
             // button3
             // 
+            button3.Cursor = Cursors.Hand;
             button3.Dock = DockStyle.Top;
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
@@ -313,7 +244,7 @@
             button3.Location = new Point(0, 40);
             button3.Name = "button3";
             button3.Padding = new Padding(35, 0, 0, 0);
-            button3.Size = new Size(250, 40);
+            button3.Size = new Size(229, 40);
             button3.TabIndex = 1;
             button3.Text = "button3";
             button3.TextAlign = ContentAlignment.MiddleLeft;
@@ -322,6 +253,7 @@
             // 
             // button2
             // 
+            button2.Cursor = Cursors.Hand;
             button2.Dock = DockStyle.Top;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
@@ -329,7 +261,7 @@
             button2.Location = new Point(0, 0);
             button2.Name = "button2";
             button2.Padding = new Padding(35, 0, 0, 0);
-            button2.Size = new Size(250, 40);
+            button2.Size = new Size(229, 40);
             button2.TabIndex = 0;
             button2.Text = "button2";
             button2.TextAlign = ContentAlignment.MiddleLeft;
@@ -338,6 +270,7 @@
             // 
             // btnMedia
             // 
+            btnMedia.Cursor = Cursors.Hand;
             btnMedia.Dock = DockStyle.Top;
             btnMedia.FlatAppearance.BorderSize = 0;
             btnMedia.FlatStyle = FlatStyle.Flat;
@@ -345,7 +278,7 @@
             btnMedia.Location = new Point(0, 100);
             btnMedia.Name = "btnMedia";
             btnMedia.Padding = new Padding(10, 0, 0, 0);
-            btnMedia.Size = new Size(250, 45);
+            btnMedia.Size = new Size(229, 45);
             btnMedia.TabIndex = 0;
             btnMedia.Text = "Media";
             btnMedia.TextAlign = ContentAlignment.MiddleLeft;
@@ -357,25 +290,59 @@
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(250, 100);
+            panelLogo.Size = new Size(229, 100);
             panelLogo.TabIndex = 0;
+            // 
+            // panelPlayer
+            // 
+            panelPlayer.BackColor = Color.FromArgb(23, 21, 32);
+            panelPlayer.Dock = DockStyle.Bottom;
+            panelPlayer.Location = new Point(250, 477);
+            panelPlayer.Name = "panelPlayer";
+            panelPlayer.Size = new Size(997, 76);
+            panelPlayer.TabIndex = 1;
+            // 
+            // panelChildForm
+            // 
+            panelChildForm.BackColor = Color.FromArgb(22, 30, 45);
+            panelChildForm.Controls.Add(pictureBox1);
+            panelChildForm.Dock = DockStyle.Fill;
+            panelChildForm.Location = new Point(250, 0);
+            panelChildForm.Name = "panelChildForm";
+            panelChildForm.Size = new Size(997, 477);
+            panelChildForm.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(337, 93);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(336, 288);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(932, 903);
+            ClientSize = new Size(1247, 553);
+            Controls.Add(panelChildForm);
+            Controls.Add(panelPlayer);
             Controls.Add(panelSideMenu);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            MaximumSize = new Size(950, 950);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load_1;
             panelSideMenu.ResumeLayout(false);
-            panelEqualizerSubmenu.ResumeLayout(false);
             panelPlaylistSubmenu.ResumeLayout(false);
             panelMediaSubmenu.ResumeLayout(false);
+            panelChildForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -389,11 +356,6 @@
         private Button button2;
         private Button btnMedia;
         private Panel panelLogo;
-        private Panel panelEqualizerSubmenu;
-        private Button button11;
-        private Button button12;
-        private Button button13;
-        private Button button14;
         private Button btnEqualizer;
         private Panel panelPlaylistSubmenu;
         private Button button6;
@@ -401,5 +363,8 @@
         private Button button8;
         private Button button9;
         private Button btnPlaylist;
+        private Panel panelPlayer;
+        private Panel panelChildForm;
+        private PictureBox pictureBox1;
     }
 }

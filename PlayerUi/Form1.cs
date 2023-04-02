@@ -12,7 +12,6 @@ namespace PlayerUi
         {
             panelMediaSubmenu.Visible = false;
             panelPlaylistSubmenu.Visible = false;
-            panelEqualizerSubmenu.Visible = false;
         }
 
         private void hideSubMenu()
@@ -23,8 +22,7 @@ namespace PlayerUi
             if (panelPlaylistSubmenu.Visible == true)
                 panelPlaylistSubmenu.Visible = false;
 
-            if (panelEqualizerSubmenu.Visible == true)
-                panelEqualizerSubmenu.Visible = false;
+
         }
 
 
@@ -79,6 +77,8 @@ namespace PlayerUi
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            openChildForm(new Form2());
             //..
             //Codigo
             //..
@@ -122,7 +122,7 @@ namespace PlayerUi
 
         private void btnEqualizer_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelEqualizerSubmenu);
+            openChildForm(new Form3());
 
         }
 
@@ -188,6 +188,26 @@ namespace PlayerUi
             //Codigo
             //..
             hideSubMenu();
+        }
+
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
